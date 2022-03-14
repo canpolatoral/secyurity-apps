@@ -16,7 +16,7 @@ spec:
       version: v3
       valueFiles:
       - values-{{ .Values.env }}.yaml
-    path: helm-charts
+    path: helm-charts/vault
     repoURL: https://github.com/paas2/vault.git 
     targetRevision: HEAD
   syncPolicy:
