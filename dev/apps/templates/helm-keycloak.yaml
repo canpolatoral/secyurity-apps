@@ -15,7 +15,7 @@ spec:
     helm:
       version: v3
       valueFiles:
-      - value-{{ .Values.env }}.yaml
+      - values-{{ .Values.env }}.yaml
     path: helm-charts/keycloak
     repoURL: https://github.com/paas2/keycloak.git 
     targetRevision: HEAD
