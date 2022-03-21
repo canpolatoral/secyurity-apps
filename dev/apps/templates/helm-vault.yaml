@@ -15,7 +15,7 @@ spec:
     helm:
       version: v3
       valueFiles:
-      - values-security-{{ Values.env }}.yaml
+      - values-security-{{ .Values.env }}.yaml
     path: helm-charts/vault
     repoURL: https://github.com/paas2/vault.git 
     targetRevision: HEAD
