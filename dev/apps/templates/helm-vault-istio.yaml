@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-vault
+  name: helm-vault-istio
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -14,9 +14,9 @@ spec:
   source:
     helm:
       version: v3
-      valueFiles:
-      - values-security-{{ Values.env }}.yaml
-    path: helm-charts/vault
+      # valueFiles:
+      # - values-security-{{ Values.env }}.yaml
+    path: helm-charts/vault-istio
     repoURL: https://github.com/paas2/vault.git 
     targetRevision: HEAD
   syncPolicy:
