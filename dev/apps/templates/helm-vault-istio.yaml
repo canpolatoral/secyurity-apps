@@ -14,8 +14,8 @@ spec:
   source:
     helm:
       version: v3
-      # valueFiles:
-      # - values-security-{{ Values.env }}.yaml
+      valueFiles:
+      - values.yaml
     path: helm-charts/vault-istio
     repoURL: https://github.com/paas2/vault.git 
     targetRevision: HEAD
