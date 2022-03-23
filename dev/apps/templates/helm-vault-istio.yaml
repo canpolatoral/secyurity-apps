@@ -7,9 +7,9 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: istio-system
+    namespace: vault
     server: {{ .Values.spec.destination.server }}
-  project: istio
+  project: vault
   
   source:
     helm:
