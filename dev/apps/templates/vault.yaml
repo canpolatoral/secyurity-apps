@@ -1,23 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-keycloak
+  name: vault
   namespace: argocd
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+  - resources-finalizer.argocd.argoproj.io 
 spec:
   destination:
-    namespace: keycloak
+    namespace: vault
     server: {{ .Values.spec.destination.server }}
-  project: keycloak
+  project: vault
   
   source:
     helm:
       version: v3
       valueFiles:
       - values-security-{{ .Values.env }}.yaml
-    path: helm-charts/keycloak
-    repoURL: https://github.com/paas2/keycloak.git 
+    path: helm-charts/vault
+    repoURL: https://github.com/paas2/vault.git 
     targetRevision: HEAD
   syncPolicy:
     syncOptions:
