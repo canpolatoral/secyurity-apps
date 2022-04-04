@@ -5,6 +5,8 @@ metadata:
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io 
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"    
 spec:
   destination:
     namespace: vault
@@ -20,7 +22,7 @@ spec:
     repoURL: https://github.com/paas2/vault.git 
     targetRevision: HEAD
   syncPolicy:
-    syncOptions:
-    - CreateNamespace=true   
+    # syncOptions:
+    # - CreateNamespace=true   
     automated:  
       prune: true             

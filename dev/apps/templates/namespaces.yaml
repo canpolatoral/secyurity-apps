@@ -6,6 +6,8 @@ metadata:
   labels:
     app.kubernetes.io/name: raw
     app.kubernetes.io/managed-by: Helm
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"     
 spec:
   project: operational
 

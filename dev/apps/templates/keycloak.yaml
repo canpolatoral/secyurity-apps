@@ -6,7 +6,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "1"  
+    argocd.argoproj.io/sync-wave: "4"  
 spec:
   destination:
     namespace: keycloak
@@ -22,7 +22,7 @@ spec:
     repoURL: https://github.com/paas2/keycloak.git 
     targetRevision: HEAD
   syncPolicy:
-    syncOptions:
-    - CreateNamespace=true   
+    # syncOptions:
+    # - CreateNamespace=true   
     automated:  
       prune: true             
