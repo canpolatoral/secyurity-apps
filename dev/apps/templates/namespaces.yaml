@@ -40,6 +40,6 @@ spec:
 
   destination:
     server: {{ .Values.spec.destination.server }}
-    namespace:
+    namespace: default
   syncPolicy:
     automated: {}
