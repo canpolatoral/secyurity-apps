@@ -8,12 +8,8 @@ spec:
   - group: '*'
     kind: '*'
   destinations:
-  - namespace: istio-system
-    server: https://kubernetes.default.svc    
-  - namespace: vault
-    server: https://kubernetes.default.svc   
-  - namespace: keycloak
-    server: https://kubernetes.default.svc            
+  - namespace: "*"
+    server: https://kubernetes.default.svc             
   orphanedResources:
     warn: false
   sourceRepos:

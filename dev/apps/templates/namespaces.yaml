@@ -39,7 +39,7 @@ spec:
               name: vault
 
   destination:
-    server: https://kubernetes.default.svc
+    server: {{ .Values.spec.destination.server }}
     namespace:
   syncPolicy:
     automated: {}
