@@ -9,7 +9,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "3"     
 spec:
-  project: operational
+  project: operations
 
   source:
     repoURL: https://github.com/paas2/operations.git
