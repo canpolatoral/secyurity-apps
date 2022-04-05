@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: operational-raw
+  name: namespaces
   namespace: argocd
   labels:
     app.kubernetes.io/name: raw
