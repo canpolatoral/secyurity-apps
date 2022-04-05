@@ -26,7 +26,7 @@ spec:
                 app.kubernetes.io/managed-by: argocd
                 app.kubernetes.io/name: keycloak
                 app.kubernetes.io/component: namespace
-                istio-injection=enabled
+                istio-injection: enabled
               name: keycloak
           - apiVersion: v1
             kind: Namespace
@@ -35,7 +35,7 @@ spec:
                 app.kubernetes.io/managed-by: argocd
                 app.kubernetes.io/name: vault
                 app.kubernetes.io/component: namespace
-                istio-injection=enabled
+                istio-injection: enabled
               name: vault
 
   destination:
