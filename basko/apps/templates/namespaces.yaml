@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: namespaces
+  namespace: argocd
+  labels:
+    app.kubernetes.io/name: raw
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"     
+spec:
+  project: operations
+
+  source:
+    repoURL: https://github.com/paas2/operations.git
+    path: helm-charts/raw
+    targetRevision: HEAD
+    helm:
+      releaseName: namespaces
+      values:       |
+        resources:
+          - apiVersion: v1
+            kind: Namespace
+            metadata:
+              labels:
+                app.kubernetes.io/managed-by: argocd
+                app.kubernetes.io/name: keycloak
+                app.kubernetes.io/component: namespace
+                istio-injection: enabled
+              name: keycloak
+          - apiVersion: v1
+            kind: Namespace
+            metadata:
+              labels:
+                app.kubernetes.io/managed-by: argocd
+                app.kubernetes.io/name: vault
+                app.kubernetes.io/component: namespace
+                istio-injection: enabled
+              name: vault
+
+  destination:
+    server: {{ .Values.spec.destination.server }}
+    namespace: default
+  syncPolicy:
+    automated: {}
