@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault-access-admission-webhook
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io 
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"    
+spec:
+  destination:
+    namespace: vault-access-definitions
+    server: {{ .Values.spec.destination.server }}
+  project: vault-access-definitions
+  
+  source:
+    helm:
+      version: v3
+      valueFiles:
+      - values.yaml
+    path: helm-charts/vault-access-admission-webhook
+    repoURL: https://github.com/paas2/vault-access-admission-webhook.git 
+    targetRevision: HEAD
+  syncPolicy:
+    # syncOptions:
+    # - CreateNamespace=true   
+    automated:  
+      prune: true             
