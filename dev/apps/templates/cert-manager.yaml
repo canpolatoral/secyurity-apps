@@ -12,7 +12,7 @@ spec:
       version: v3
       valueFiles:
       - values.yaml
-      # - values-buildenv-{{ .Values.env }}.yaml
+      - values-security-{{ .Values.env }}.yaml
     path: helm-charts/cert-manager
     repoURL: https://github.com/paas2/cert-manager.git 
     targetRevision: HEAD
